@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './Home.css'; // For navbar styling
 import './components/Pathfinding/PathfindingPage.css'; // For grid styling
+import Navbar from './components/Navbar'; // Import the Navbar component
+
 
 function Pathfinding() {
   // Grid dimensions
@@ -265,16 +266,7 @@ function Pathfinding() {
   return (
     <div className="home-container">
       {/* Top Navigation */}
-      <header className="navbar">
-        <div className="navbar-logo">
-          <h2>Playground</h2>
-        </div>
-        <nav className="navbar-links">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/pathfinding" className="nav-link active">Pathfinding</Link>
-          <Link to="/game-theory" className="nav-link">Game Theory</Link>
-        </nav>
-      </header>
+      <Navbar /> {/* Use the Navbar component instead of inline JSX */}
 
       <div className="pathfinding-container">
         <h1>Pathfinding Algorithms</h1>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './Home.css'; // For navbar styling
 import './components/GameTheory/GameTheoryPage.css'; // CSS file
 
@@ -7,6 +6,7 @@ import './components/GameTheory/GameTheoryPage.css'; // CSS file
 import GameSetupVisual from './components/GameTheory/GameSetupVisual';
 import GameResultsVisual from './components/GameTheory/GameResultsVisual';
 import GameHistoryChart from './components/GameTheory/GameHistoryChart';
+import Navbar from './components/Navbar'; // Import the Navbar component
 
 function GameTheory() {
   // Game state
@@ -165,17 +165,7 @@ function GameTheory() {
 
   return (
     <div className="home-container">
-      {/* Top Navigation */}
-      <header className="navbar">
-        <div className="navbar-logo">
-          <h2>Playground</h2>
-        </div>
-        <nav className="navbar-links">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/pathfinding" className="nav-link">Pathfinding</Link>
-          <Link to="/game-theory" className="nav-link active">Game Theory</Link>
-        </nav>
-      </header>
+      <Navbar /> {/* Use the Navbar component instead of inline JSX */}
 
       <div className="game-theory-container">
         <h1>Nash Equilibrium Guessing Game</h1>
