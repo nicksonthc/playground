@@ -1,0 +1,261 @@
+/* Game Theory Page Styles */
+.game-theory-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.game-explanation {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-explanation h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.game-interface {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.selection-area {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.number-selection {
+  margin-top: 10px;
+}
+
+.selected-number-display {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.number-highlight {
+  font-weight: bold;
+  color: #007bff;
+  font-size: 24px;
+}
+
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 5px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.number-btn {
+  padding: 8px;
+  border: 1px solid #ddd;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.number-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.number-btn.selected {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border-color: #4CAF50;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.play-btn, .reset-btn, .play-again-btn {
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.play-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.play-btn:hover {
+  background-color: #218838;
+}
+
+.play-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.reset-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.reset-btn:hover {
+  background-color: #c82333;
+}
+
+.play-again-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-top: 20px;
+}
+
+.play-again-btn:hover {
+  background-color: #0069d9;
+}
+
+.result-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 30px;
+}
+
+.result {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.result.win {
+  color: #28a745;
+}
+
+.result.lose {
+  color: #dc3545;
+}
+
+.result.tie {
+  color: #ffc107;
+}
+
+.result-details {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.chart-container {
+  margin: 30px auto;
+  max-width: 900px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nash-explanation-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px 25px;
+  margin: 20px 0;
+  border-left: 4px solid #3f51b5;
+}
+
+.nash-explanation-card .card-title {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.nash-explanation-card .card-content {
+  padding: 0 5px;
+}
+
+.nash-explanation-card .explanation-list {
+  padding-left: 0;
+  margin: 15px 0;
+  list-style-type: none;
+}
+
+.nash-explanation-card .explanation-list li {
+  margin-bottom: 10px;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 20px;
+}
+
+.nash-explanation-card .explanation-list li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #3f51b5;
+  font-weight: bold;
+}
+
+.nash-explanation-card .conclusion {
+  margin-top: 15px;
+  font-style: italic;
+  color: #555;
+}
+
+.winner-message {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 15px;
+  margin: 15px 0;
+  text-align: center;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+}
+
+.player-won {
+  color: #28a745;
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.player-lost {
+  color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.large-text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+  .number-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .chart-container {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .number-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

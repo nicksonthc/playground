@@ -1,0 +1,196 @@
+.pathfinding-container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2d3748;
+}
+
+.controls-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tool-selection, .execution-controls, .status-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.controls-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.control-btn, .compute-btn, .reset-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.control-btn {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.control-btn.active {
+  background-color: #4299e1;
+  color: white;
+}
+
+.control-btn:hover {
+  background-color: #cbd5e0;
+}
+
+.control-btn.active:hover {
+  background-color: #3182ce;
+}
+
+.compute-btn {
+  background-color: #48bb78;
+  color: white;
+  padding: 0.75rem 1.5rem;
+}
+
+.compute-btn:hover {
+  background-color: #38a169;
+}
+
+.compute-btn:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.reset-btn {
+  background-color: #f56565;
+  color: white;
+  margin-left: 0.5rem;
+}
+
+.reset-btn:hover {
+  background-color: #e53e3e;
+}
+
+.status-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.status-color.robot {
+  background-color: #3182ce;
+}
+
+.status-color.destination {
+  background-color: #ed8936;
+}
+
+.status-color.wall {
+  background-color: #2d3748;
+}
+
+.status-color.path {
+  background-color: #48bb78;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.grid-row {
+  display: flex;
+}
+
+.grid-cell {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.grid-cell:hover {
+  background-color: #edf2f7;
+}
+
+.grid-cell.robot {
+  background-color: #3182ce;
+  color: white;
+}
+
+.grid-cell.destination {
+  background-color: #ed8936;
+  color: white;
+}
+
+.grid-cell.wall {
+  background-color: #2d3748;
+  color: white;
+}
+
+.grid-cell.path {
+  background-color: #48bb78;
+  color: white;
+}
+
+.cell-coord {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .grid-cell {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+  
+  .cell-coord {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-cell {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .cell-coord {
+    display: none;
+  }
+}
