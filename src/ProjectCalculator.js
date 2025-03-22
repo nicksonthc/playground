@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Home.css'; // For navbar styling
 import './components/ProjectCalculator/ProjectCalculator.css'; // For styling
 import Navbar from './components/Navbar'; // Import the Navbar component
@@ -44,11 +44,7 @@ function ProjectCalculator() {
   };
 
   // Calculate project costs whenever form data changes
-  useEffect(() => {
-    calculateProjectCost();
-  }, [formData]);
-
-  const calculateProjectCost = () => {
+  const calculateProjectCost = useCallback(() => {
     // Calculate months required
     const monthsRequired = formData.engineeringDays / 20;
     
@@ -72,7 +68,12 @@ function ProjectCalculator() {
       totalCost,
       quotationAmount
     });
-  };
+  }, [formData]);
+
+  // Use the memoized function in useEffect
+  useEffect(() => {
+    calculateProjectCost();
+  }, [calculateProjectCost]);
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-MY', {
