@@ -4,11 +4,9 @@ import '../Home.css'; // For navbar styling
 
 function Navbar() {
   const location = useLocation();
-  
+
   // Helper function to determine if a link should be active
-  const isActive = (path) => {
-    return location.pathname === path ? 'active' : '';
-  };
+  const isActive = (path) => location.pathname === path ? 'active' : '';
 
   return (
     <header className="navbar">
