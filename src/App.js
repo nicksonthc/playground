@@ -4,10 +4,12 @@ import Pathfinding from "./Pathfinding";
 import GameTheory from "./GameTheory";
 import ProjectCalculator from "./ProjectCalculator";
 import './App.css';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pathfinding" element={<Pathfinding />} />
