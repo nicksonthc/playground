@@ -1,5 +1,5 @@
 import React from 'react';
-import './GameTheoryComponents.css';
+import './GameTheoryComponents.css'; // Updated relative path
 
 const GameHistoryChart = ({ history }) => {
   // We'll show the last 10 games at most (or fewer if we don't have 10)

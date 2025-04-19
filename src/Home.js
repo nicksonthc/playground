@@ -12,15 +12,14 @@ function Home() {
       <main className="main-content">
         <section className="hero-section">
           <h1>Welcome to My Playground</h1>
-          <p>Explore interactive algorithms and simulations</p>
+          <p>Discover interactive tools and simulations</p>
         </section>
 
         <section className="feature-cards">
           <div className="card">
             <h3>Pathfinding Algorithms</h3>
             <p>
-              Visualize different pathfinding techniques like A*, Dijkstra, and
-              BFS
+              🧭 Navigate the Maze: Master the Art of Pathfinding Algorithms
             </p>
             <Link to="/pathfinding" className="card-link">
               Explore
@@ -29,7 +28,7 @@ function Home() {
           <div className="card">
             <h3>Game Theory</h3>
             <p>
-              Interact with simulations of game theory concepts and strategies
+              🎲 Strategic Insights: Unravel the Dynamics of Game Theory
             </p>
             <Link to="/game-theory" className="card-link">
               Explore
@@ -38,9 +37,18 @@ function Home() {
           <div className="card">
             <h3>Project Quotation Calculator</h3>
             <p>
-              Calculate project costs based on timelines, resources and overhead costs
+              💼 Plan with Precision: Estimate Costs with Confidence
             </p>
             <Link to="/project-calculator" className="card-link">
+              Explore
+            </Link>
+          </div>
+          <div className="card">
+            <h3>Data & Algorithms</h3>
+            <p>
+              ⚙️ Dive Deep: Explore the Intricacies of Data & Algorithms
+            </p>
+            <Link to="/algo-ds" className="card-link">
               Explore
             </Link>
           </div>

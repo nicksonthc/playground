@@ -18,6 +18,7 @@ function Navbar() {
         <Link to="/pathfinding" className={`nav-link ${isActive('/pathfinding')}`}>Pathfinding</Link>
         <Link to="/game-theory" className={`nav-link ${isActive('/game-theory')}`}>Game Theory</Link>
         <Link to="/project-calculator" className={`nav-link ${isActive('/project-calculator')}`}>Project Calculator</Link>
+        <Link to="/algo-ds" className={`nav-link ${isActive('/algo-ds')}`}>AlgoCraft</Link>
       </nav>
     </header>
   );

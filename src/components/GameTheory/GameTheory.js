@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './Home.css'; // For navbar styling
-import './components/GameTheory/GameTheoryPage.css'; // CSS file
+import '../../Home.css'; // For navbar styling
+import './GameTheoryPage.css'; // CSS file
 
 // Component imports
-import GameSetupVisual from './components/GameTheory/GameSetupVisual';
-import GameResultsVisual from './components/GameTheory/GameResultsVisual';
-import GameHistoryChart from './components/GameTheory/GameHistoryChart';
-import Navbar from './components/Navbar'; // Import the Navbar component
+import GameSetupVisual from './GameSetupVisual';
+import GameResultsVisual from './GameResultsVisual';
+import GameHistoryChart from './GameHistoryChart';
+import Navbar from '../Navbar'; // Import the Navbar component
 
 function GameTheory() {
   // Game state
@@ -165,8 +165,7 @@ function GameTheory() {
 
   return (
     <div className="home-container">
-      <Navbar /> {/* Use the Navbar component instead of inline JSX */}
-
+      <Navbar /> {/* Ensure Navbar is included */}
       <div className="game-theory-container">
         <h1>Nash Equilibrium Guessing Game</h1>
         

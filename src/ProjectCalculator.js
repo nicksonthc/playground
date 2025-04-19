@@ -14,10 +14,14 @@ function ProjectCalculator() {
     profitMargin: 30 // Percentage
   });
 
+  // State for hardware items
+  const [hardwareItems, setHardwareItems] = useState([]);
+
   // State for calculated results
   const [results, setResults] = useState({
     resourceCost: 0,
     onsiteAndSupportCost: 0,
+    hardwareCost: 0,
     totalCost: 0,
     quotationAmount: 0
   });
@@ -43,7 +47,31 @@ function ProjectCalculator() {
     }
   };
 
-  // Calculate project costs whenever form data changes
+  // Handle hardware item changes
+  const handleHardwareChange = (index, field, value) => {
+    const updatedHardwareItems = [...hardwareItems];
+    if (field === 'qty' || field === 'cost') {
+      // Remove leading zeros for number inputs
+      const cleanedValue = value.replace(/^0+(?=\d)/, '');
+      updatedHardwareItems[index][field] = parseFloat(cleanedValue) || 0;
+    } else {
+      updatedHardwareItems[index][field] = value;
+    }
+    setHardwareItems(updatedHardwareItems);
+  };
+
+  // Add a new hardware item
+  const addHardwareItem = () => {
+    setHardwareItems([...hardwareItems, { name: '', cost: 0, qty: 1 }]);
+  };
+
+  // Remove a hardware item
+  const removeHardwareItem = (index) => {
+    const updatedHardwareItems = hardwareItems.filter((_, i) => i !== index);
+    setHardwareItems(updatedHardwareItems);
+  };
+
+  // Calculate project costs whenever form data or hardware items change
   const calculateProjectCost = useCallback(() => {
     // Calculate months required
     const monthsRequired = formData.engineeringDays / 20;
@@ -54,8 +82,11 @@ function ProjectCalculator() {
     // Calculate Onsite,OT and Allowance cost
     const onsiteAndSupportCost = formData.onsiteCost * formData.supportPeriod * formData.headcount;
     
+    // Calculate total hardware cost
+    const hardwareCost = hardwareItems.reduce((total, item) => total + (item.cost * item.qty), 0);
+    
     // Calculate total cost
-    const totalCost = resourceCost + onsiteAndSupportCost;
+    const totalCost = resourceCost + onsiteAndSupportCost + hardwareCost;
     
     // Calculate quotation amount with profit margin
     const profitAmount = totalCost * (formData.profitMargin / 100);
@@ -65,10 +96,11 @@ function ProjectCalculator() {
     setResults({
       resourceCost,
       onsiteAndSupportCost,
+      hardwareCost,
       totalCost,
       quotationAmount
     });
-  }, [formData]);
+  }, [formData, hardwareItems]);
 
   // Use the memoized function in useEffect
   useEffect(() => {
@@ -90,7 +122,7 @@ return (
         <div className="calculator-container">
             <h1>Project Calculator</h1>
             <p className="calculator-description">
-                Calculate project costs and generate quotations based on resource requirements and support costs.
+            Calculate project costs and generate quotations (including hardware costs).
             </p>
 
             <div className="calculator-form-container">
@@ -170,6 +202,58 @@ return (
                         />
                         <small>(You can include overhead cost here)</small>
                     </div>
+
+                    <div className="form-group">
+                        <label>Hardware Costs:</label>
+                        {hardwareItems.map((item, index) => (
+                            <div key={index} className="hardware-item">
+                                <div className="form-group">
+                                    <label>Hardware Name:</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Enter hardware name"
+                                        value={item.name}
+                                        onChange={(e) => handleHardwareChange(index, 'name', e.target.value)}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Cost (RM):</label>
+                                    <input
+                                        type="number"
+                                        placeholder="Enter cost"
+                                        value={item.cost}
+                                        onChange={(e) => {
+                                            const cleaned = e.target.value.replace(/^0+(?=\d)/, '') || '0';
+                                            handleHardwareChange(index, 'cost', cleaned);
+                                            e.target.value = cleaned; // Visually update the input field
+                                          }}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Quantity:</label>
+                                    <input
+                                        type="number"
+                                        placeholder="Enter quantity"
+                                        value={item.qty}
+                                        onChange={(e) => {
+                                            const cleaned = e.target.value.replace(/^0+(?=\d)/, '') || '0';
+                                            handleHardwareChange(index, 'qty', cleaned);
+                                            e.target.value = cleaned; // Visually update the input field
+                                          }}
+                                    />
+                                </div>
+                                <button 
+                                    onClick={() => removeHardwareItem(index)} 
+                                    className="modern-btn remove-btn"
+                                >
+                                    Remove
+                                </button>
+                            </div>
+                        ))}
+                        <button onClick={addHardwareItem} className="modern-btn add-btn">
+                            + Add Hardware
+                        </button>
+                    </div>
                 </div>
 
                 <div className="calculator-results">
@@ -181,6 +265,10 @@ return (
                     <div className="result-item">
                         <span>Onsite & Support Cost:</span>
                         <span>{formatCurrency(results.onsiteAndSupportCost)}</span>
+                    </div>
+                    <div className="result-item">
+                        <span>Hardware Cost:</span>
+                        <span>{formatCurrency(results.hardwareCost)}</span>
                     </div>
                     <div className="result-item total">
                         <span>Total Cost:</span>
