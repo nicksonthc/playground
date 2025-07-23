@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar-logo">
-        <h2>Playground</h2>
+        <h2>NickSpace</h2>
       </div>
       <nav className="navbar-links">
         <Link to="/" className={`nav-link ${isActive('/')}`}>Home</Link>

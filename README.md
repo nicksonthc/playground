@@ -1,10 +1,10 @@
-# Playground Application
+# NickSpace Application
 
 This project is a React-based interactive application that showcases various algorithms, simulations, and tools. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Overview
 
-The Playground application provides an engaging way to explore and interact with:
+The NickSpace application provides an engaging way to explore and interact with:
 - **Pathfinding Algorithms**: Visualize and understand how different pathfinding techniques work.
 - **Game Theory Simulations**: Experiment with game theory concepts like Nash equilibrium.
 - **Project Quotation Calculator**: Calculate project costs based on resources, timelines, and overheads.

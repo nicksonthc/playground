@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'; // Add useEffect
+import React, { useState, useEffect } from 'react';
+import '../../Home.css'; // For consistent navbar and layout styling
 import './AlgoAndDs.css';
-import Navbar from '../Navbar'; // Import Navbar component
-import { toast, ToastContainer } from 'react-toastify'; // Import react-toastify
-import 'react-toastify/dist/ReactToastify.css'; // Import toast styles
+import Navbar from '../Navbar';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AdvancedConcepts = () => {
   const [selectedConcept, setSelectedConcept] = useState(null);
@@ -132,17 +133,24 @@ const AdvancedConcepts = () => {
   }, []);
 
   return (
-    <div className="advanced-concepts-container">
-      <Navbar /> {/* Ensure Navbar is included */}
-      <h1>Algorithms & Data Structure</h1>
-      <div className="concepts-grid">
-        <div
-          className="concept-card"
-          onClick={() => handleCardClick('Bloom Filter')}
-        >
-          <h2>Bloom Filter</h2>
-          <p>Efficiently checks if an item is likely in a set before performing expensive operations. May have false positives but no false negatives.</p>
-        </div>
+    <div className="home-container">
+      <Navbar />
+      <div className="main-content">
+        <section className="algo-section">
+          <div className="section-header">
+            <h1>Algorithms & Data Structures</h1>
+            <p>Explore interactive implementations of fundamental algorithms and data structures</p>
+          </div>
+          <div className="concepts-grid">
+            <div
+              className="concept-card"
+              onClick={() => handleCardClick('Bloom Filter')}
+            >
+              <h2>Bloom Filter</h2>
+              <p>Efficiently checks if an item is likely in a set before performing expensive operations. May have false positives but no false negatives.</p>
+            </div>
+          </div>
+        </section>
       </div>
       {selectedConcept === 'Bloom Filter' && (
         <div className="modal">
