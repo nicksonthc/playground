@@ -1,0 +1,376 @@
+.income-tax-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.tax-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.tax-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tax-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.tax-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .tax-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tax-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.input-card h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.income-input {
+  font-size: 1.2rem !important;
+  font-weight: 600;
+  padding: 1rem !important;
+  background: linear-gradient(45deg, #f8f9fa, #e9ecef) !important;
+}
+
+.relief-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.calculate-btn, .reset-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.calculate-btn {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.calculate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.reset-btn {
+  background: linear-gradient(45deg, #6c757d, #495057);
+  color: white;
+  box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+.reset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+}
+
+.tax-results-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.results-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.results-card h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #28a745;
+  padding-bottom: 0.5rem;
+}
+
+.results-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.summary-item.highlight {
+  background: linear-gradient(90deg, rgba(40, 167, 69, 0.1), transparent);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #28a745;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.summary-item .label {
+  font-weight: 600;
+  color: #666;
+}
+
+.summary-item .value {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.summary-item .value.relief {
+  color: #28a745;
+}
+
+.summary-item .value.tax {
+  color: #dc3545;
+  font-size: 1.2rem;
+}
+
+.summary-item .value.net {
+  color: #28a745;
+  font-size: 1.2rem;
+}
+
+.tax-rates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.rate-item {
+  background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+}
+
+.rate-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.rate-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #495057;
+}
+
+.tax-breakdown {
+  border-top: 2px solid #f1f3f4;
+  padding-top: 1.5rem;
+}
+
+.tax-breakdown h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.breakdown-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.breakdown-header, .breakdown-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  gap: 1rem;
+  padding: 0.75rem;
+  align-items: center;
+}
+
+.breakdown-header {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.breakdown-row {
+  border-bottom: 1px solid #f1f3f4;
+  font-size: 0.9rem;
+}
+
+.breakdown-row:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.breakdown-row:last-child {
+  border-bottom: none;
+}
+
+.tax-brackets-info {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tax-brackets-info h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #ffc107;
+  padding-bottom: 0.5rem;
+}
+
+.brackets-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.brackets-header, .brackets-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  padding: 0.75rem;
+  align-items: center;
+}
+
+.brackets-header {
+  background: linear-gradient(45deg, #ffc107, #fd7e14);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.brackets-row {
+  border-bottom: 1px solid #f1f3f4;
+  font-size: 0.9rem;
+}
+
+.brackets-row:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.brackets-row:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .income-tax-container {
+    padding: 1rem;
+  }
+  
+  .tax-header h1 {
+    font-size: 2rem;
+  }
+  
+  .relief-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .tax-rates {
+    grid-template-columns: 1fr;
+  }
+  
+  .breakdown-header, .breakdown-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .brackets-header, .brackets-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
