@@ -40,7 +40,6 @@ reviews:
     
     # Auto-approve changes to these files
     auto_approve:
-      - "package.json" # dependency updates
       - "README.md"    # documentation updates
       - "CHANGELOG.md"
     
