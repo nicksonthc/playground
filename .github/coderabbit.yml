@@ -1,0 +1,212 @@
+# CodeRabbit Configuration for NickSpace Playground
+# https://docs.coderabbit.ai/configuration-file
+
+# Language settings
+language: en-US
+
+# Review settings
+reviews:
+  # Enable/disable auto reviews
+  auto_review: true
+  
+  # Draft PR reviews
+  draft_as_pending: true
+  
+  # Review scope
+  review:
+    # Files to review
+    include:
+      - "**/*.js"
+      - "**/*.jsx" 
+      - "**/*.ts"
+      - "**/*.tsx"
+      - "**/*.css"
+      - "**/*.scss"
+      - "**/*.json"
+      - "**/*.md"
+      - "**/*.yml"
+      - "**/*.yaml"
+    
+    # Files to exclude from review
+    exclude:
+      - "node_modules/**"
+      - "build/**"
+      - "dist/**"
+      - "coverage/**"
+      - "*.min.js"
+      - "*.bundle.js"
+      - "package-lock.json"
+      - "yarn.lock"
+    
+    # Auto-approve changes to these files
+    auto_approve:
+      - "README.md"    # documentation updates
+      - "CHANGELOG.md"
+    
+    # Require manual approval for these critical files
+    require_manual_approval:
+      - "src/App.js"
+      - ".github/**"
+      - "public/index.html"
+      - "CLAUDE.md"
+
+# Code quality rules
+rules:
+  # JavaScript/React specific rules
+  javascript:
+    # Performance
+    - check_unused_variables: true
+    - check_console_logs: warn
+    - check_debugger_statements: error
+    - suggest_const_over_let: true
+    
+    # React specific
+    - check_react_hooks_dependencies: true
+    - suggest_react_memo: true
+    - check_jsx_key_props: true
+    - suggest_functional_components: true
+    
+    # General code quality
+    - max_function_length: 50
+    - max_file_length: 500
+    - suggest_early_returns: true
+    - check_duplicate_code: true
+  
+  # CSS specific rules  
+  css:
+    - check_unused_styles: true
+    - suggest_css_variables: true
+    - check_responsive_units: true
+    - prefer_flexbox_grid: true
+  
+  # Security rules
+  security:
+    - check_hardcoded_secrets: error
+    - check_vulnerable_dependencies: warn
+    - check_unsafe_html: error
+
+# Comment settings
+comments:
+  # Comment behavior
+  tone: friendly
+  max_comments_per_review: 15
+  
+  # Focus areas for comments
+  focus_areas:
+    - performance
+    - security
+    - maintainability
+    - accessibility
+    - best_practices
+    - code_style
+  
+  # Specific comment types
+  suggest:
+    - performance_improvements: true
+    - accessibility_improvements: true
+    - code_simplification: true
+    - better_naming: true
+    - error_handling: true
+  
+  # Don't comment on these (auto-fix instead)
+  auto_fix:
+    - formatting
+    - simple_typos
+    - missing_semicolons
+    - trailing_whitespace
+
+# Project-specific settings
+project:
+  # Framework detection
+  framework: react
+  
+  # Build tools
+  build_tools:
+    - npm
+    - create-react-app
+  
+  # Testing framework
+  testing_framework: jest
+  
+  # Deployment
+  deployment_platform: github_pages
+
+# Integration settings
+integrations:
+  # GitHub settings
+  github:
+    # PR title suggestions
+    suggest_pr_titles: true
+    
+    # Auto-assign reviewers based on file changes
+    auto_assign_reviewers:
+      - "src/components/GameTheory/**": ["@game-theory-expert"]
+      - "src/components/Pathfinding/**": ["@algorithms-expert"]
+      - "src/components/IncomeTax/**": ["@finance-expert"]
+      - "**/*.css": ["@ui-ux-expert"]
+    
+    # PR labels
+    auto_labels:
+      - path: "src/components/**/*.js"
+        labels: ["frontend", "react"]
+      - path: "**/*.css"
+        labels: ["styling", "ui"]
+      - path: "**/*.md"
+        labels: ["documentation"]
+      - path: ".github/**"
+        labels: ["ci/cd", "config"]
+      - path: "src/components/IncomeTax/**"
+        labels: ["feature", "calculator"]
+
+# Custom rules for this project
+custom_rules:
+  # Educational project specific rules
+  - name: "educational_clarity"
+    description: "Ensure code is educational and well-documented"
+    pattern: "src/components/**/*.js"
+    checks:
+      - has_component_description: warn
+      - has_prop_types: suggest
+      - has_usage_examples: suggest
+  
+  # Calculator specific rules
+  - name: "calculator_accuracy"
+    description: "Ensure calculator components have proper validation"
+    pattern: "src/components/*Calculator/**/*.js"
+    checks:
+      - has_input_validation: error
+      - has_error_handling: error
+      - has_boundary_testing: warn
+  
+  # Performance rules for interactive components
+  - name: "interactive_performance"
+    description: "Ensure interactive components are optimized"
+    pattern: "src/components/**/*.js"
+    checks:
+      - uses_react_memo_when_needed: suggest
+      - uses_callback_for_handlers: suggest
+      - minimal_re_renders: warn
+
+# Notification settings
+notifications:
+  # When to notify
+  events:
+    - review_completed
+    - high_priority_issues
+    - security_vulnerabilities
+  
+  # Notification channels (customize based on your setup)
+  channels:
+    - github_comments
+    - github_reviews
+
+# Learning and improvement
+learning:
+  # Track improvement over time
+  track_metrics: true
+  
+  # Suggest learning resources
+  suggest_resources: true
+  
+  # Focus on educational value since this is a playground project
+  educational_mode: true

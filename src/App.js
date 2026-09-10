@@ -4,6 +4,7 @@ import Home from "./Home";
 import Pathfinding from "./Pathfinding";
 import GameTheory from "./components/GameTheory/GameTheory";
 import ProjectCalculator from "./ProjectCalculator";
+import IncomeTaxCalculator from "./components/IncomeTax/IncomeTaxCalculator";
 import Algo from './components/AlgoAndDs/AlgoAndDs';
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="pathfinding" element={<Pathfinding />} />
         <Route path="game-theory" element={<GameTheory />} />
         <Route path="project-calculator" element={<ProjectCalculator />} />
+        <Route path="income-tax" element={<IncomeTaxCalculator />} />
         <Route path="algo-ds" element={<Algo />} />
       </Routes>
     </div>
